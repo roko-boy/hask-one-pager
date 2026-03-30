@@ -4,14 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HASK × Aisle — Retail Growth Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --accent: #ecff44;
+      --black: #020202;
+      --white: #ffffff;
+      --gray-light: #f4f4f4;
+      --gray-mid: #e6e6e6;
+      --gray-text: #555;
+      --gray-dark: #252525;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f4f8; color: #1a1a2e; line-height: 1.5; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: var(--black);
+      line-height: 1.55;
+    }
 
-    /* Header */
+    /* ── Header ── */
     .header {
-      background: #0f1923;
-      padding: 18px 48px;
+      background: var(--black);
+      padding: 20px 52px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -19,82 +36,135 @@
     .header-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       color: #fff;
-      font-size: 18px;
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.15em;
+    }
+    .header-brand .sep { color: #555; margin: 0 2px; }
+    .header-brand .aisle-word {
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
-      letter-spacing: 0.02em;
+      font-size: 17px;
+      letter-spacing: 0.04em;
     }
-    .header-brand .logo-box {
-      background: #e8d5b7;
-      border-radius: 6px;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 13px;
-      color: #1a1a2e;
-      letter-spacing: -0.5px;
-    }
-    .header-brand .separator { color: #556; margin: 0 4px; }
     .header-meta {
-      color: #7a8fa6;
+      color: #666;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       text-align: right;
+      font-weight: 500;
     }
-    .header-meta strong { display: block; color: #a0b4c8; font-size: 12px; }
+    .header-meta strong { display: block; color: #aaa; font-size: 11px; }
 
-    /* Hero */
+    /* ── Accent ticker ── */
+    .ticker {
+      background: var(--accent);
+      padding: 8px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 25s linear infinite;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── Hero ── */
     .hero {
-      background: #fff;
-      padding: 40px 48px 36px;
-      border-bottom: 1px solid #e2e8f0;
+      background: var(--white);
+      padding: 52px 52px 44px;
+      border-bottom: 1px solid var(--gray-mid);
     }
-    .hero h1 {
-      font-size: 28px;
-      font-weight: 700;
-      color: #0f1923;
-      max-width: 700px;
-      line-height: 1.25;
-    }
-    .hero p {
-      color: #556;
-      font-size: 14px;
-      margin-top: 8px;
-      max-width: 680px;
-    }
-
-    /* Section */
-    .section { padding: 36px 48px; }
-    .section-label {
+    .hero .eyebrow {
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: #7a8fa6;
-      margin-bottom: 20px;
+      letter-spacing: 0.18em;
+      color: #999;
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--black);
+      max-width: 640px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .hero p {
+      color: var(--gray-text);
+      font-size: 14px;
+      max-width: 620px;
+      font-weight: 300;
     }
 
-    /* Journey */
+    /* ── Section ── */
+    .section { padding: 44px 52px; }
+    .section-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #999;
+      margin-bottom: 24px;
+    }
+
+    /* ── Performance bar ── */
+    .perf-bar {
+      background: var(--black);
+      padding: 28px 52px;
+      display: flex;
+      gap: 0;
+      align-items: stretch;
+    }
+    .perf-stat {
+      flex: 1;
+      border-right: 1px solid #333;
+      padding: 0 32px;
+      text-align: center;
+    }
+    .perf-stat:first-child { padding-left: 0; }
+    .perf-stat:last-child { border-right: none; }
+    .perf-stat .num {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 38px;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .perf-stat .label {
+      font-size: 11px;
+      color: #888;
+      line-height: 1.4;
+    }
+
+    /* ── Journey ── */
     .journey-wrap {
-      background: #fff;
-      border-radius: 12px;
-      padding: 28px;
+      background: var(--white);
+      border-radius: 2px;
+      padding: 32px;
       margin-bottom: 16px;
+      border: 1px solid var(--gray-mid);
     }
     .journey-steps {
       display: flex;
       align-items: flex-start;
-      gap: 0;
-      overflow-x: auto;
     }
     .journey-step {
       flex: 1;
-      min-width: 110px;
       text-align: center;
       position: relative;
     }
@@ -102,14 +172,14 @@
       content: '→';
       position: absolute;
       right: -8px;
-      top: 18px;
-      font-size: 18px;
-      color: #c0cfe0;
+      top: 16px;
+      font-size: 16px;
+      color: #ccc;
     }
     .step-icon {
       width: 44px;
       height: 44px;
-      background: #0f1923;
+      background: var(--black);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -117,243 +187,238 @@
       margin: 0 auto 10px;
       font-size: 18px;
     }
-    .journey-step h4 { font-size: 12px; font-weight: 700; color: #0f1923; }
-    .journey-step p { font-size: 10px; color: #7a8fa6; margin-top: 4px; line-height: 1.4; }
+    .journey-step h4 { font-size: 12px; font-weight: 600; color: var(--black); }
+    .journey-step p { font-size: 10.5px; color: #888; margin-top: 4px; line-height: 1.4; }
 
     .loop-banner {
-      background: #0f1923;
+      background: var(--black);
       color: #fff;
-      border-radius: 8px;
+      border-radius: 2px;
       padding: 14px 20px;
       font-size: 13px;
+      font-weight: 300;
       margin-top: 16px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
     .loop-banner .tag {
-      background: #1e3a5f;
-      border-radius: 4px;
-      padding: 3px 8px;
-      font-size: 10px;
+      background: var(--accent);
+      color: var(--black);
+      border-radius: 2px;
+      padding: 3px 9px;
+      font-size: 9.5px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       white-space: nowrap;
     }
 
-    /* Feature cards */
+    /* ── Feature cards ── */
     .feature-cards {
-      display: flex;
-      gap: 16px;
-      margin-top: 8px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 12px;
     }
     .feature-card {
-      flex: 1;
-      background: #fff;
-      border-radius: 10px;
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 2px;
       padding: 20px;
-      border-left: 3px solid transparent;
     }
-    .feature-card.blue { border-left-color: #2563eb; }
-    .feature-card.green { border-left-color: #16a34a; }
-    .feature-card.purple { border-left-color: #7c3aed; }
-    .feature-card.orange { border-left-color: #ea580c; }
-    .feature-card h4 { font-size: 13px; font-weight: 700; color: #0f1923; margin-bottom: 6px; }
-    .feature-card p { font-size: 12px; color: #556; line-height: 1.5; }
+    .feature-card h4 { font-size: 12.5px; font-weight: 600; color: var(--black); margin-bottom: 6px; }
+    .feature-card p { font-size: 11.5px; color: var(--gray-text); line-height: 1.5; font-weight: 300; }
 
-    /* Two col */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
+    /* ── Two col ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
 
-    /* Campaign types */
+    /* ── Campaign types ── */
     .campaign-type {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 2px;
+      padding: 22px;
       margin-bottom: 12px;
-      border: 1px solid #e2e8f0;
     }
     .campaign-type .offer-tag {
       font-size: 9px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #2563eb;
-      background: #eff6ff;
-      border-radius: 4px;
+      letter-spacing: 0.12em;
+      background: var(--accent);
+      color: var(--black);
+      border-radius: 2px;
       padding: 2px 7px;
       display: inline-block;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .campaign-type h4 { font-size: 15px; font-weight: 700; color: #0f1923; margin-bottom: 6px; }
-    .campaign-type p { font-size: 12px; color: #556; }
+    .campaign-type h4 { font-family: 'Tenor Sans', sans-serif; font-size: 16px; color: var(--black); margin-bottom: 6px; }
+    .campaign-type p { font-size: 12px; color: var(--gray-text); font-weight: 300; }
 
-    /* Customization */
+    /* ── Custom options ── */
     .custom-item {
-      border-bottom: 1px solid #e8edf3;
+      border-bottom: 1px solid var(--gray-mid);
       padding: 14px 0;
     }
     .custom-item:last-child { border-bottom: none; }
-    .custom-item h5 { font-size: 13px; font-weight: 700; color: #0f1923; margin-bottom: 3px; }
-    .custom-item p { font-size: 12px; color: #556; }
+    .custom-item h5 { font-size: 12.5px; font-weight: 600; margin-bottom: 3px; }
+    .custom-item p { font-size: 11.5px; color: var(--gray-text); font-weight: 300; }
 
-    /* Audience */
-    .audience-section { background: #0f1923; }
-    .audience-section .section-label { color: #4a6fa5; }
-    .audience-section h2 { color: #fff; font-size: 20px; margin-bottom: 6px; }
-    .audience-section p { color: #7a8fa6; font-size: 13px; margin-bottom: 24px; max-width: 560px; }
-    .audience-stats {
-      display: flex;
-      gap: 24px;
+    /* ── Audience / dark section ── */
+    .dark-section {
+      background: var(--black);
+      padding: 44px 52px;
     }
+    .dark-section .section-label { color: #444; }
+    .dark-section h2 {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 24px;
+      color: var(--white);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+    .dark-section p { color: #777; font-size: 13px; margin-bottom: 28px; max-width: 560px; font-weight: 300; }
+    .audience-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .stat-card {
-      flex: 1;
-      background: #1a2d45;
-      border-radius: 10px;
-      padding: 22px;
+      border: 1px solid #222;
+      border-radius: 2px;
+      padding: 24px 20px;
       text-align: center;
     }
-    .stat-card .number { font-size: 32px; font-weight: 800; color: #fff; }
-    .stat-card .label { font-size: 12px; color: #7a8fa6; margin-top: 4px; }
-
-    /* Phase / Flywheel */
-    .phases {
-      display: flex;
-      gap: 16px;
+    .stat-card .number {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 34px;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
     }
+    .stat-card .label { font-size: 11px; color: #666; line-height: 1.4; }
+
+    /* ── Phases ── */
+    .phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
     .phase {
-      flex: 1;
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      position: relative;
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 2px;
+      padding: 22px;
     }
     .phase-num {
-      width: 28px;
-      height: 28px;
+      width: 26px; height: 26px;
       border-radius: 50%;
-      background: #0f1923;
-      color: #fff;
-      font-size: 12px;
+      background: var(--black);
+      color: var(--white);
+      font-size: 11px;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
     }
-    .phase h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; color: #0f1923; }
-    .phase ul { padding-left: 16px; }
-    .phase ul li { font-size: 11px; color: #556; margin-bottom: 4px; }
+    .phase h4 { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+    .phase ul { padding-left: 15px; }
+    .phase ul li { font-size: 11px; color: var(--gray-text); margin-bottom: 4px; font-weight: 300; }
     .phase-tag {
       display: inline-block;
       font-size: 9px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      border-radius: 4px;
+      border-radius: 2px;
       padding: 2px 7px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      background: var(--accent);
+      color: var(--black);
     }
-    .tag-trial { background: #dbeafe; color: #1d4ed8; }
-    .tag-retain { background: #dcfce7; color: #15803d; }
-    .tag-expand { background: #fef3c7; color: #b45309; }
-    .tag-alwayson { background: #f3e8ff; color: #6d28d9; }
 
-    /* Launch timeline */
-    .timeline { }
+    /* ── Proof grid ── */
+    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .proof-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 2px;
+      padding: 22px;
+    }
+    .proof-card .cat-tag {
+      font-size: 9px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; background: var(--gray-light);
+      border-radius: 2px; padding: 2px 8px;
+      display: inline-block; color: #666; margin-bottom: 10px;
+    }
+    .proof-card h4 { font-family: 'Tenor Sans', sans-serif; font-size: 15px; margin-bottom: 8px; }
+    .proof-card p { font-size: 11.5px; color: var(--gray-text); font-weight: 300; }
+
+    /* ── Metrics section ── */
+    .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .metric-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 2px;
+      padding: 22px;
+    }
+    .metric-card .m-num {
+      font-family: 'Tenor Sans', sans-serif;
+      font-size: 32px;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .metric-card .m-label { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+    .metric-card .m-desc { font-size: 11px; color: var(--gray-text); font-weight: 300; line-height: 1.4; }
+
+    /* ── Timeline ── */
     .timeline-step {
       display: flex;
-      gap: 16px;
-      margin-bottom: 16px;
+      gap: 18px;
+      margin-bottom: 18px;
       align-items: flex-start;
     }
     .timeline-num {
-      width: 32px;
-      height: 32px;
+      width: 30px; height: 30px;
       border-radius: 50%;
-      background: #0f1923;
-      color: #fff;
-      font-size: 13px;
+      background: var(--black);
+      color: var(--white);
+      font-size: 12px;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
-      margin-top: 2px;
     }
-    .timeline-content h5 { font-size: 13px; font-weight: 700; color: #0f1923; }
-    .timeline-content p { font-size: 12px; color: #556; }
-    .timeline-content .days { font-size: 10px; color: #7a8fa6; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+    .timeline-content h5 { font-size: 13px; font-weight: 600; }
+    .timeline-content p { font-size: 12px; color: var(--gray-text); font-weight: 300; }
+    .timeline-content .days { font-size: 9.5px; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
 
-    /* What HASK provides */
-    .provides-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
+    /* ── Provides ── */
+    .provides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .provides-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 2px;
+      padding: 22px;
       text-align: center;
     }
-    .provides-card .icon { font-size: 28px; margin-bottom: 10px; }
-    .provides-card h5 { font-size: 13px; font-weight: 700; color: #0f1923; margin-bottom: 4px; }
-    .provides-card p { font-size: 11px; color: #7a8fa6; }
+    .provides-card .icon { font-size: 26px; margin-bottom: 10px; }
+    .provides-card h5 { font-size: 12.5px; font-weight: 600; margin-bottom: 4px; }
+    .provides-card p { font-size: 11px; color: #999; font-weight: 300; }
 
-    /* Social proof */
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .proof-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-    }
-    .proof-card .category-tag {
-      font-size: 9px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background: #e8edf3;
-      border-radius: 4px;
-      padding: 2px 8px;
-      display: inline-block;
-      color: #556;
-      margin-bottom: 8px;
-    }
-    .proof-card h4 { font-size: 14px; font-weight: 700; color: #0f1923; margin-bottom: 8px; }
-    .proof-card p { font-size: 12px; color: #556; }
-    .proof-card a { display: inline-block; margin-top: 10px; font-size: 11px; color: #2563eb; text-decoration: none; }
-
-    /* Footer */
+    /* ── Footer ── */
     .footer {
-      background: #0f1923;
-      padding: 20px 48px;
+      background: var(--black);
+      padding: 22px 52px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-top: 2px solid var(--accent);
     }
-    .footer .contact { color: #7a8fa6; font-size: 12px; }
-    .footer .contact strong { color: #a0b4c8; }
-    .footer .tagline { color: #4a6fa5; font-size: 12px; }
+    .footer .contact { color: #666; font-size: 12px; }
+    .footer .contact strong { color: #aaa; }
+    .footer .tagline { color: #444; font-size: 11px; font-family: 'Tenor Sans', sans-serif; letter-spacing: 0.1em; }
 
-    @media (max-width: 768px) {
-      .section { padding: 24px 20px; }
-      .header { padding: 16px 20px; }
-      .hero { padding: 28px 20px; }
-      .two-col { grid-template-columns: 1fr; gap: 16px; }
-      .phases { flex-direction: column; }
-      .audience-stats { flex-wrap: wrap; }
-      .proof-grid { grid-template-columns: 1fr; }
-      .journey-steps { flex-wrap: wrap; gap: 16px; }
-      .provides-grid { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 900px) {
+      .section, .dark-section, .perf-bar, .hero { padding-left: 24px; padding-right: 24px; }
+      .two-col { grid-template-columns: 1fr; }
+      .phases, .audience-stats { grid-template-columns: 1fr 1fr; }
+      .feature-cards { grid-template-columns: 1fr 1fr; }
+      .proof-grid, .metrics-grid, .provides-grid { grid-template-columns: 1fr; }
+      .perf-bar { flex-wrap: wrap; gap: 20px; }
+      .perf-stat { border-right: none; border-bottom: 1px solid #333; padding-bottom: 20px; }
     }
   </style>
 </head>
@@ -362,10 +427,9 @@
 <!-- Header -->
 <div class="header">
   <div class="header-brand">
-    <div class="logo-box">HB</div>
     <span>HASK</span>
-    <span class="separator">×</span>
-    <span>Aisle</span>
+    <span class="sep">×</span>
+    <span class="aisle-word">Aisle</span>
   </div>
   <div class="header-meta">
     <strong>Campaign Proposal</strong>
@@ -373,26 +437,55 @@
   </div>
 </div>
 
+<!-- Accent Ticker -->
+<div class="ticker">
+  <div class="ticker-inner">
+    TRIAL &nbsp;·&nbsp; REACTIVATION &nbsp;·&nbsp; LOYALTY &nbsp;·&nbsp; FIRST-PARTY DATA &nbsp;·&nbsp; TARGET-FIRST &nbsp;·&nbsp; NO POS INTEGRATION &nbsp;·&nbsp; ALWAYS-ON &nbsp;·&nbsp; FULL-PRICE VELOCITY &nbsp;·&nbsp; RECEIPT-VERIFIED &nbsp;·&nbsp; WHITE-LABELED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    TRIAL &nbsp;·&nbsp; REACTIVATION &nbsp;·&nbsp; LOYALTY &nbsp;·&nbsp; FIRST-PARTY DATA &nbsp;·&nbsp; TARGET-FIRST &nbsp;·&nbsp; NO POS INTEGRATION &nbsp;·&nbsp; ALWAYS-ON &nbsp;·&nbsp; FULL-PRICE VELOCITY &nbsp;·&nbsp; RECEIPT-VERIFIED &nbsp;·&nbsp; WHITE-LABELED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+</div>
+
 <!-- Hero -->
 <div class="hero">
-  <h1>Turn the rebrand moment into a retail growth engine — powered by Aisle</h1>
-  <p>A Target-first pilot to reactivate legacy shoppers, convert new buyers, and build a compounding retail data layer as HASK transitions to the new look.</p>
+  <div class="eyebrow">For HASK — Inspired Beauty</div>
+  <h1>Turn the rebrand moment into a retail growth engine</h1>
+  <p>A Target-first pilot to reactivate legacy shoppers, convert new buyers, and build a compounding retail data layer — as HASK transitions to the new avocado oil formula and packaging.</p>
+</div>
+
+<!-- Performance Stats Bar -->
+<div class="perf-bar">
+  <div class="perf-stat">
+    <div class="num">11%</div>
+    <div class="label">avg traffic → shopper signup rate via owned email channels</div>
+  </div>
+  <div class="perf-stat">
+    <div class="num">21%</div>
+    <div class="label">avg signup → redemption conversion (landing page campaigns)</div>
+  </div>
+  <div class="perf-stat">
+    <div class="num">48h</div>
+    <div class="label">avg payout time — Venmo, PayPal, or Zelle</div>
+  </div>
+  <div class="perf-stat">
+    <div class="num">10×</div>
+    <div class="label">higher signup rate from owned email vs. cold paid traffic</div>
+  </div>
 </div>
 
 <!-- Shopper Journey -->
-<div class="section">
+<div class="section" style="background:#fff; border-bottom:1px solid var(--gray-mid);">
   <div class="section-label">The Shopper Journey — Step by Step</div>
   <div class="journey-wrap">
     <div class="journey-steps">
       <div class="journey-step">
         <div class="step-icon">📱</div>
         <h4>Sees Offer</h4>
-        <p>Email, paid social, creator post, or QR on shelf</p>
+        <p>Email, paid social, creator post, or in-store QR</p>
       </div>
       <div class="journey-step">
         <div class="step-icon">🛒</div>
         <h4>Buys In-Store</h4>
-        <p>Picks up HASK at Target with confidence</p>
+        <p>Picks up new HASK at Target — full price velocity</p>
       </div>
       <div class="journey-step">
         <div class="step-icon">🧾</div>
@@ -407,31 +500,31 @@
       <div class="journey-step">
         <div class="step-icon">🔁</div>
         <h4>Gets Retargeted</h4>
-        <p>Automatic follow-up offer triggers repeat purchase</p>
+        <p>Auto follow-up offer triggers repeat purchase</p>
       </div>
     </div>
     <div class="loop-banner">
       <span class="tag">Built-in Loop</span>
-      <span>Shoppers who redeem Offer 1 are automatically served Offer 2 — driving repeat purchase with zero extra work from your team.</span>
+      <span>Shoppers who redeem Offer 1 are automatically served Offer 2 — driving repeat purchase with zero extra work from your team. Your 65K legacy email list is the fastest first lever.</span>
     </div>
   </div>
 
   <div class="feature-cards">
-    <div class="feature-card blue">
-      <h4>✅ No app download required</h4>
-      <p>Shoppers access everything via a mobile web link — completely frictionless.</p>
+    <div class="feature-card">
+      <h4>✅ No App Required</h4>
+      <p>Shoppers access everything via mobile web — completely frictionless, higher conversion.</p>
     </div>
-    <div class="feature-card green">
-      <h4>🧾 Receipt-verified only</h4>
+    <div class="feature-card">
+      <h4>🧾 Receipt-Verified</h4>
       <p>Every redemption requires a valid purchase receipt — no fraud, no stacking.</p>
     </div>
-    <div class="feature-card purple">
-      <h4>📊 Real-time brand dashboard</h4>
-      <p>Live view of redemptions, shopper demographics, and Target-attributed performance.</p>
+    <div class="feature-card">
+      <h4>📊 Real-Time Dashboard</h4>
+      <p>Live view of redemptions, shopper demographics, Target-specific performance data.</p>
     </div>
-    <div class="feature-card orange">
-      <h4>🏷️ 100% white-labeled</h4>
-      <p>Shoppers only see HASK branding — Aisle is completely invisible.</p>
+    <div class="feature-card">
+      <h4>🏷️ White-Labeled</h4>
+      <p>Shoppers only see HASK branding. Aisle is completely invisible — your brand, your data.</p>
     </div>
   </div>
 </div>
@@ -443,45 +536,45 @@
       <div class="section-label">Campaign Types</div>
 
       <div class="campaign-type">
-        <div class="offer-tag">Offer Type 1 — Trial Driver</div>
-        <h4>Free Product / BOGO Offer</h4>
-        <p>Full cashback on purchase — one redemption per shopper. Best for driving first-time trial of the new packaging at Target. Ideal for reactivating legacy shoppers who haven't bought since the rebrand.</p>
+        <div class="offer-tag">Type 1 — Trial Driver</div>
+        <h4>Free Product / BOGO</h4>
+        <p>Full cashback on purchase — one redemption per shopper. Ideal for driving first-time trial of the new packaging at Target. Best for reactivating legacy shoppers who haven't bought since the rebrand.</p>
       </div>
 
       <div class="campaign-type">
-        <div class="offer-tag">Offer Type 2 — Repeat Purchase</div>
+        <div class="offer-tag">Type 2 — Repeat Purchase</div>
         <h4>$ Off Discount</h4>
-        <p>Multi-redemption cashback offer. Converts first-time buyers into repeat shoppers. Can layer automatically on top of Offer 1 as a retargeting follow-up — no manual work required.</p>
+        <p>Multi-redemption cashback offer. Converts first-time buyers into repeat shoppers. Auto-layers on top of Offer 1 as a retargeting follow-up — completely automated.</p>
       </div>
 
       <div class="campaign-type">
-        <div class="offer-tag">Offer Type 3 — Loyalty</div>
+        <div class="offer-tag">Type 3 — Loyalty</div>
         <h4>Punch Card Program</h4>
-        <p>Structured repeat-purchase loop. Example: Buy 2 save $1.50 → Buy 3 save $2 → Buy 4 get BOGO. Creates the same community flywheel that indie brands use — now available to HASK.</p>
+        <p>Structured repeat-purchase loop. Example: Buy 2 save $1.50 → Buy 3 save $2 → Buy 4 get BOGO. Builds the same community mechanic winning for indie brands — now at HASK scale.</p>
       </div>
     </div>
 
     <div>
-      <div class="section-label">Customization Options</div>
-      <div style="background:#fff;border-radius:10px;padding:20px;">
+      <div class="section-label">Customization &amp; Control</div>
+      <div style="background:var(--white);border:1px solid var(--gray-mid);border-radius:2px;padding:24px;">
         <div class="custom-item">
           <h5>Branding</h5>
           <p>Your logo, your colors — zero Aisle branding visible to shoppers at any point.</p>
         </div>
         <div class="custom-item">
-          <h5>Offer Value</h5>
-          <p>You set the cashback amount — free product, fixed $X off, or % back. Adjustable per campaign.</p>
-        </div>
-        <div class="custom-item">
           <h5>Retailer Scope</h5>
-          <p>Start Target-only. Expand to Walmart, CVS, Walgreens, Kroger, Publix at any time.</p>
+          <p>Start Target-only. Expand to Walmart, CVS, Walgreens, Kroger, Publix at any time — same infrastructure.</p>
         </div>
         <div class="custom-item">
           <h5>SKU Targeting</h5>
-          <p>Apply to specific SKUs or full line — total control over what's included during the packaging transition.</p>
+          <p>Apply to specific SKUs or full line — total control during the packaging transition.</p>
         </div>
         <div class="custom-item">
-          <h5>Volume Control</h5>
+          <h5>Offer Value</h5>
+          <p>Free product, fixed $ off, or % back. Adjustable per campaign, per retailer.</p>
+        </div>
+        <div class="custom-item">
+          <h5>Volume Cap</h5>
           <p>Cap by total spend or redemption count. Predictable, low-risk — easy internal approval.</p>
         </div>
       </div>
@@ -489,19 +582,56 @@
   </div>
 </div>
 
-<!-- Aisle Audience -->
-<div class="section audience-section">
+<!-- Performance Metrics -->
+<div class="section" style="background:var(--gray-light); border-top:1px solid var(--gray-mid); border-bottom:1px solid var(--gray-mid);">
+  <div class="section-label">Platform Performance Data</div>
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="m-num">~11%</div>
+      <div class="m-label">Email → Signup Conversion</div>
+      <div class="m-desc">Brands using their owned email list as the primary activation channel see ~11% of clicks convert to Aisle signups — vs. &lt;2% from cold paid traffic. HASK's 65K legacy list is the highest-leverage starting point.</div>
+    </div>
+    <div class="metric-card">
+      <div class="m-num">~21%</div>
+      <div class="m-label">Signup → Redemption Rate</div>
+      <div class="m-desc">Across landing page campaigns, ~21% of shoppers who sign up complete a purchase and submit a receipt. This is the primary funnel metric — tied directly to in-store velocity at your target retailers.</div>
+    </div>
+    <div class="metric-card">
+      <div class="m-num">100%</div>
+      <div class="m-label">First-Party Data Ownership</div>
+      <div class="m-desc">Every redemption captures shopper phone, email, retailer, SKU, and store location. That data is HASK's — exportable to any CRM, usable for Meta retargeting lookalike audiences, and builds with every campaign.</div>
+    </div>
+    <div class="metric-card">
+      <div class="m-num">$0</div>
+      <div class="m-label">New Digital Budget Required</div>
+      <div class="m-desc">Add an Aisle CTA to campaigns you're already running — email, paid social, creators. Same creative, same media spend. Now with a clear path to purchase at Target + full redemption tracking on the backend.</div>
+    </div>
+    <div class="metric-card">
+      <div class="m-num">No POS</div>
+      <div class="m-label">No Retailer Integration Needed</div>
+      <div class="m-desc">Receipt-based verification. No Target systems integration required. Full-price velocity — Aisle never discounts at the register. Retailer-friendly and compliant across all HASK's distribution doors.</div>
+    </div>
+    <div class="metric-card">
+      <div class="m-num">2–10 days</div>
+      <div class="m-label">Time to Live</div>
+      <div class="m-desc">Campaigns go live within days of signing. No long build cycles. Fast enough to respond to real-time inventory, packaging transition timing, or seasonal moments at Target.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Aisle Audience (Dark) -->
+<div class="dark-section">
   <div class="section-label">The Aisle Audience</div>
   <h2>Built-in shopper network — HASK's exact target demo</h2>
-  <p>Beyond HASK's owned email list, Aisle has an active retail shopper audience that maps directly to beauty and personal care buyers. These shoppers are already in the receipt-based redemption flow — high intent, low friction.</p>
+  <p>Beyond HASK's owned email list, Aisle has an active retail shopper audience that maps directly to beauty and personal care buyers. High intent, already in the receipt-based redemption flow.</p>
   <div class="audience-stats">
     <div class="stat-card">
       <div class="number">18–43</div>
-      <div class="label">Age Range</div>
+      <div class="label">Primary Age Range</div>
     </div>
     <div class="stat-card">
       <div class="number">70%</div>
-      <div class="label">Female</div>
+      <div class="label">Female Shoppers</div>
     </div>
     <div class="stat-card">
       <div class="number">~$85K</div>
@@ -515,15 +645,15 @@
 </div>
 
 <!-- Flywheel Phases -->
-<div class="section">
+<div class="section" style="background:#fff; border-bottom:1px solid var(--gray-mid);">
   <div class="section-label">Growth Strategy — The Flywheel</div>
   <div class="phases">
     <div class="phase">
       <div class="phase-num">1</div>
-      <span class="phase-tag tag-trial">Trial</span>
+      <span class="phase-tag">Trial</span>
       <h4>Phase 1 — Target Pilot</h4>
       <ul>
-        <li>BOGO / Free product offer</li>
+        <li>BOGO / free product offer at Target</li>
         <li>Email list + Aisle audience activation</li>
         <li>Target-attributed performance data</li>
         <li>New vs. legacy buyer segmentation</li>
@@ -531,7 +661,7 @@
     </div>
     <div class="phase">
       <div class="phase-num">2</div>
-      <span class="phase-tag tag-retain">Retention</span>
+      <span class="phase-tag">Retention</span>
       <h4>Phase 2 — Loyalty Loop</h4>
       <ul>
         <li>Punch card with escalating rewards</li>
@@ -542,7 +672,7 @@
     </div>
     <div class="phase">
       <div class="phase-num">3</div>
-      <span class="phase-tag tag-expand">Expansion</span>
+      <span class="phase-tag">Expansion</span>
       <h4>Phase 3 — Retailer Rollout</h4>
       <ul>
         <li>Same playbook → Walmart, CVS, Walgreens</li>
@@ -553,7 +683,7 @@
     </div>
     <div class="phase">
       <div class="phase-num">4</div>
-      <span class="phase-tag tag-alwayson">Always-On</span>
+      <span class="phase-tag">Always-On</span>
       <h4>Phase 4 — Embedded System</h4>
       <ul>
         <li>Aisle CTA in all email flows</li>
@@ -565,56 +695,56 @@
   </div>
 </div>
 
-<!-- Brands Already Doing This -->
+<!-- Social Proof -->
 <div class="section">
   <div class="section-label">Brands Already Doing This with Aisle</div>
   <div class="proof-grid">
     <div class="proof-card">
-      <span class="category-tag">Personal Care</span>
+      <span class="cat-tag">Personal Care</span>
       <h4>Dr. Squatch</h4>
-      <p>Running store locator + offer campaigns across Target and Walmart. Embed form live on their landing page — drives paid traffic directly to in-store purchase with full redemption tracking.</p>
+      <p>Store locator + offer campaigns live across Target and Walmart. Embed form on their landing page drives paid traffic directly to in-store purchase with full redemption tracking.</p>
     </div>
     <div class="proof-card">
-      <span class="category-tag">Beverage</span>
+      <span class="cat-tag">Beverage</span>
       <h4>Cadence</h4>
-      <p>Running a BOGO cashback offer at Target — shoppers buy, text their receipt, and get reimbursed via PayPal within 48 hours. Full-funnel visibility, fully white-labeled.</p>
+      <p>Running a BOGO cashback offer at Target — shoppers buy, submit their receipt, and get reimbursed via PayPal within 48 hours. Fully white-labeled under Cadence branding.</p>
     </div>
     <div class="proof-card">
-      <span class="category-tag">Food / CPG</span>
-      <h4>Pete & Gerry's</h4>
-      <p>SMS-triggered SKU offer — shoppers opt in via text, buy in-store, and submit receipt for cashback. Aisle powers the redemption flow and payout, branded entirely as Pete & Gerry's.</p>
+      <span class="cat-tag">Food / CPG</span>
+      <h4>Pete &amp; Gerry's</h4>
+      <p>SMS-triggered SKU offer — shoppers opt in via text, buy in-store, and submit receipt for cashback. Aisle powers the full redemption flow, branded entirely as Pete &amp; Gerry's.</p>
     </div>
   </div>
 </div>
 
-<!-- What We Need + Timeline -->
-<div class="section">
+<!-- What We Need + Launch Timeline -->
+<div class="section" style="background:var(--gray-light); border-top:1px solid var(--gray-mid);">
   <div class="section-label">What We Need + Launch Timeline</div>
   <div class="two-col">
     <div>
-      <h3 style="font-size:16px;font-weight:700;color:#0f1923;margin-bottom:16px;">What HASK Provides</h3>
+      <h3 style="font-family:'Tenor Sans',sans-serif;font-size:18px;font-weight:400;margin-bottom:18px;">What HASK Provides</h3>
       <div class="provides-grid">
         <div class="provides-card">
           <div class="icon">✍️</div>
           <h5>Signed Agreement</h5>
-          <p>Standard subscription contract — typically 2–3 business days</p>
+          <p>Standard subscription contract — 2–3 business days</p>
         </div>
         <div class="provides-card">
           <div class="icon">🎨</div>
           <h5>Brand Assets</h5>
-          <p>Logo + brand colors for white-label setup — already have yours</p>
+          <p>Logo + brand colors for white-label setup</p>
         </div>
         <div class="provides-card">
           <div class="icon">📋</div>
           <h5>Offer Details</h5>
-          <p>Which SKUs, offer value(s), Target scope confirmed</p>
+          <p>SKUs, offer value, Target scope confirmed</p>
         </div>
       </div>
     </div>
 
     <div>
-      <h3 style="font-size:16px;font-weight:700;color:#0f1923;margin-bottom:16px;">Launch Timeline</h3>
-      <div class="timeline">
+      <h3 style="font-family:'Tenor Sans',sans-serif;font-size:18px;font-weight:400;margin-bottom:18px;">Launch Timeline</h3>
+      <div>
         <div class="timeline-step">
           <div class="timeline-num">1</div>
           <div class="timeline-content">
@@ -657,7 +787,7 @@
   <div class="contact">
     Questions? <strong>Sean Ritter</strong> · sean@gotoaisle.com
   </div>
-  <div class="tagline">gotoaisle.com · Consumer engagement for retail brands</div>
+  <div class="tagline">gotoaisle.com</div>
 </div>
 
 </body>
