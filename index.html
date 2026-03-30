@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HASK × Aisle — Retail Growth Platform</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f4f8; color: #1a1a2e; line-height: 1.5; }
+
+    /* Header */
+    .header {
+      background: #0f1923;
+      padding: 18px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .header-brand .logo-box {
+      background: #e8d5b7;
+      border-radius: 6px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: #1a1a2e;
+      letter-spacing: -0.5px;
+    }
+    .header-brand .separator { color: #556; margin: 0 4px; }
+    .header-meta {
+      color: #7a8fa6;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: right;
+    }
+    .header-meta strong { display: block; color: #a0b4c8; font-size: 12px; }
+
+    /* Hero */
+    .hero {
+      background: #fff;
+      padding: 40px 48px 36px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f1923;
+      max-width: 700px;
+      line-height: 1.25;
+    }
+    .hero p {
+      color: #556;
+      font-size: 14px;
+      margin-top: 8px;
+      max-width: 680px;
+    }
+
+    /* Section */
+    .section { padding: 36px 48px; }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #7a8fa6;
+      margin-bottom: 20px;
+    }
+
+    /* Journey */
+    .journey-wrap {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+    .journey-steps {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .journey-step {
+      flex: 1;
+      min-width: 110px;
+      text-align: center;
+      position: relative;
+    }
+    .journey-step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -8px;
+      top: 18px;
+      font-size: 18px;
+      color: #c0cfe0;
+    }
+    .step-icon {
+      width: 44px;
+      height: 44px;
+      background: #0f1923;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      font-size: 18px;
+    }
+    .journey-step h4 { font-size: 12px; font-weight: 700; color: #0f1923; }
+    .journey-step p { font-size: 10px; color: #7a8fa6; margin-top: 4px; line-height: 1.4; }
+
+    .loop-banner {
+      background: #0f1923;
+      color: #fff;
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-size: 13px;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .loop-banner .tag {
+      background: #1e3a5f;
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    /* Feature cards */
+    .feature-cards {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .feature-card {
+      flex: 1;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      border-left: 3px solid transparent;
+    }
+    .feature-card.blue { border-left-color: #2563eb; }
+    .feature-card.green { border-left-color: #16a34a; }
+    .feature-card.purple { border-left-color: #7c3aed; }
+    .feature-card.orange { border-left-color: #ea580c; }
+    .feature-card h4 { font-size: 13px; font-weight: 700; color: #0f1923; margin-bottom: 6px; }
+    .feature-card p { font-size: 12px; color: #556; line-height: 1.5; }
+
+    /* Two col */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    /* Campaign types */
+    .campaign-type {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .campaign-type .offer-tag {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #2563eb;
+      background: #eff6ff;
+      border-radius: 4px;
+      padding: 2px 7px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .campaign-type h4 { font-size: 15px; font-weight: 700; color: #0f1923; margin-bottom: 6px; }
+    .campaign-type p { font-size: 12px; color: #556; }
+
+    /* Customization */
+    .custom-item {
+      border-bottom: 1px solid #e8edf3;
+      padding: 14px 0;
+    }
+    .custom-item:last-child { border-bottom: none; }
+    .custom-item h5 { font-size: 13px; font-weight: 700; color: #0f1923; margin-bottom: 3px; }
+    .custom-item p { font-size: 12px; color: #556; }
+
+    /* Audience */
+    .audience-section { background: #0f1923; }
+    .audience-section .section-label { color: #4a6fa5; }
+    .audience-section h2 { color: #fff; font-size: 20px; margin-bottom: 6px; }
+    .audience-section p { color: #7a8fa6; font-size: 13px; margin-bottom: 24px; max-width: 560px; }
+    .audience-stats {
+      display: flex;
+      gap: 24px;
+    }
+    .stat-card {
+      flex: 1;
+      background: #1a2d45;
+      border-radius: 10px;
+      padding: 22px;
+      text-align: center;
+    }
+    .stat-card .number { font-size: 32px; font-weight: 800; color: #fff; }
+    .stat-card .label { font-size: 12px; color: #7a8fa6; margin-top: 4px; }
+
+    /* Phase / Flywheel */
+    .phases {
+      display: flex;
+      gap: 16px;
+    }
+    .phase {
+      flex: 1;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      position: relative;
+    }
+    .phase-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0f1923;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .phase h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; color: #0f1923; }
+    .phase ul { padding-left: 16px; }
+    .phase ul li { font-size: 11px; color: #556; margin-bottom: 4px; }
+    .phase-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-bottom: 8px;
+    }
+    .tag-trial { background: #dbeafe; color: #1d4ed8; }
+    .tag-retain { background: #dcfce7; color: #15803d; }
+    .tag-expand { background: #fef3c7; color: #b45309; }
+    .tag-alwayson { background: #f3e8ff; color: #6d28d9; }
+
+    /* Launch timeline */
+    .timeline { }
+    .timeline-step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+    .timeline-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #0f1923;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .timeline-content h5 { font-size: 13px; font-weight: 700; color: #0f1923; }
+    .timeline-content p { font-size: 12px; color: #556; }
+    .timeline-content .days { font-size: 10px; color: #7a8fa6; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+
+    /* What HASK provides */
+    .provides-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .provides-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .provides-card .icon { font-size: 28px; margin-bottom: 10px; }
+    .provides-card h5 { font-size: 13px; font-weight: 700; color: #0f1923; margin-bottom: 4px; }
+    .provides-card p { font-size: 11px; color: #7a8fa6; }
+
+    /* Social proof */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .proof-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .proof-card .category-tag {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: #e8edf3;
+      border-radius: 4px;
+      padding: 2px 8px;
+      display: inline-block;
+      color: #556;
+      margin-bottom: 8px;
+    }
+    .proof-card h4 { font-size: 14px; font-weight: 700; color: #0f1923; margin-bottom: 8px; }
+    .proof-card p { font-size: 12px; color: #556; }
+    .proof-card a { display: inline-block; margin-top: 10px; font-size: 11px; color: #2563eb; text-decoration: none; }
+
+    /* Footer */
+    .footer {
+      background: #0f1923;
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer .contact { color: #7a8fa6; font-size: 12px; }
+    .footer .contact strong { color: #a0b4c8; }
+    .footer .tagline { color: #4a6fa5; font-size: 12px; }
+
+    @media (max-width: 768px) {
+      .section { padding: 24px 20px; }
+      .header { padding: 16px 20px; }
+      .hero { padding: 28px 20px; }
+      .two-col { grid-template-columns: 1fr; gap: 16px; }
+      .phases { flex-direction: column; }
+      .audience-stats { flex-wrap: wrap; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .journey-steps { flex-wrap: wrap; gap: 16px; }
+      .provides-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-brand">
+    <div class="logo-box">HB</div>
+    <span>HASK</span>
+    <span class="separator">×</span>
+    <span>Aisle</span>
+  </div>
+  <div class="header-meta">
+    <strong>Campaign Proposal</strong>
+    March 2026 · Confidential
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Turn the rebrand moment into a retail growth engine — powered by Aisle</h1>
+  <p>A Target-first pilot to reactivate legacy shoppers, convert new buyers, and build a compounding retail data layer as HASK transitions to the new look.</p>
+</div>
+
+<!-- Shopper Journey -->
+<div class="section">
+  <div class="section-label">The Shopper Journey — Step by Step</div>
+  <div class="journey-wrap">
+    <div class="journey-steps">
+      <div class="journey-step">
+        <div class="step-icon">📱</div>
+        <h4>Sees Offer</h4>
+        <p>Email, paid social, creator post, or QR on shelf</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-icon">🛒</div>
+        <h4>Buys In-Store</h4>
+        <p>Picks up HASK at Target with confidence</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-icon">🧾</div>
+        <h4>Snaps Receipt</h4>
+        <p>Under 60 seconds via mobile web — no app needed</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-icon">💰</div>
+        <h4>Gets Cashback</h4>
+        <p>Paid 48–72 hrs via Venmo, PayPal, or Zelle</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-icon">🔁</div>
+        <h4>Gets Retargeted</h4>
+        <p>Automatic follow-up offer triggers repeat purchase</p>
+      </div>
+    </div>
+    <div class="loop-banner">
+      <span class="tag">Built-in Loop</span>
+      <span>Shoppers who redeem Offer 1 are automatically served Offer 2 — driving repeat purchase with zero extra work from your team.</span>
+    </div>
+  </div>
+
+  <div class="feature-cards">
+    <div class="feature-card blue">
+      <h4>✅ No app download required</h4>
+      <p>Shoppers access everything via a mobile web link — completely frictionless.</p>
+    </div>
+    <div class="feature-card green">
+      <h4>🧾 Receipt-verified only</h4>
+      <p>Every redemption requires a valid purchase receipt — no fraud, no stacking.</p>
+    </div>
+    <div class="feature-card purple">
+      <h4>📊 Real-time brand dashboard</h4>
+      <p>Live view of redemptions, shopper demographics, and Target-attributed performance.</p>
+    </div>
+    <div class="feature-card orange">
+      <h4>🏷️ 100% white-labeled</h4>
+      <p>Shoppers only see HASK branding — Aisle is completely invisible.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Campaign Types + Customization -->
+<div class="section">
+  <div class="two-col">
+    <div>
+      <div class="section-label">Campaign Types</div>
+
+      <div class="campaign-type">
+        <div class="offer-tag">Offer Type 1 — Trial Driver</div>
+        <h4>Free Product / BOGO Offer</h4>
+        <p>Full cashback on purchase — one redemption per shopper. Best for driving first-time trial of the new packaging at Target. Ideal for reactivating legacy shoppers who haven't bought since the rebrand.</p>
+      </div>
+
+      <div class="campaign-type">
+        <div class="offer-tag">Offer Type 2 — Repeat Purchase</div>
+        <h4>$ Off Discount</h4>
+        <p>Multi-redemption cashback offer. Converts first-time buyers into repeat shoppers. Can layer automatically on top of Offer 1 as a retargeting follow-up — no manual work required.</p>
+      </div>
+
+      <div class="campaign-type">
+        <div class="offer-tag">Offer Type 3 — Loyalty</div>
+        <h4>Punch Card Program</h4>
+        <p>Structured repeat-purchase loop. Example: Buy 2 save $1.50 → Buy 3 save $2 → Buy 4 get BOGO. Creates the same community flywheel that indie brands use — now available to HASK.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Customization Options</div>
+      <div style="background:#fff;border-radius:10px;padding:20px;">
+        <div class="custom-item">
+          <h5>Branding</h5>
+          <p>Your logo, your colors — zero Aisle branding visible to shoppers at any point.</p>
+        </div>
+        <div class="custom-item">
+          <h5>Offer Value</h5>
+          <p>You set the cashback amount — free product, fixed $X off, or % back. Adjustable per campaign.</p>
+        </div>
+        <div class="custom-item">
+          <h5>Retailer Scope</h5>
+          <p>Start Target-only. Expand to Walmart, CVS, Walgreens, Kroger, Publix at any time.</p>
+        </div>
+        <div class="custom-item">
+          <h5>SKU Targeting</h5>
+          <p>Apply to specific SKUs or full line — total control over what's included during the packaging transition.</p>
+        </div>
+        <div class="custom-item">
+          <h5>Volume Control</h5>
+          <p>Cap by total spend or redemption count. Predictable, low-risk — easy internal approval.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Aisle Audience -->
+<div class="section audience-section">
+  <div class="section-label">The Aisle Audience</div>
+  <h2>Built-in shopper network — HASK's exact target demo</h2>
+  <p>Beyond HASK's owned email list, Aisle has an active retail shopper audience that maps directly to beauty and personal care buyers. These shoppers are already in the receipt-based redemption flow — high intent, low friction.</p>
+  <div class="audience-stats">
+    <div class="stat-card">
+      <div class="number">18–43</div>
+      <div class="label">Age Range</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">70%</div>
+      <div class="label">Female</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">~$85K</div>
+      <div class="label">Avg. Household Income</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">65K+</div>
+      <div class="label">HASK Legacy Subscriber Reactivation Pool</div>
+    </div>
+  </div>
+</div>
+
+<!-- Flywheel Phases -->
+<div class="section">
+  <div class="section-label">Growth Strategy — The Flywheel</div>
+  <div class="phases">
+    <div class="phase">
+      <div class="phase-num">1</div>
+      <span class="phase-tag tag-trial">Trial</span>
+      <h4>Phase 1 — Target Pilot</h4>
+      <ul>
+        <li>BOGO / Free product offer</li>
+        <li>Email list + Aisle audience activation</li>
+        <li>Target-attributed performance data</li>
+        <li>New vs. legacy buyer segmentation</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="phase-num">2</div>
+      <span class="phase-tag tag-retain">Retention</span>
+      <h4>Phase 2 — Loyalty Loop</h4>
+      <ul>
+        <li>Punch card with escalating rewards</li>
+        <li>Retargeting of Phase 1 redeemers</li>
+        <li>Repeat-purchase incentives</li>
+        <li>CRM segment export to email flows</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="phase-num">3</div>
+      <span class="phase-tag tag-expand">Expansion</span>
+      <h4>Phase 3 — Retailer Rollout</h4>
+      <ul>
+        <li>Same playbook → Walmart, CVS, Walgreens</li>
+        <li>Retailer-specific geo targeting</li>
+        <li>Cross-SKU campaign bundles</li>
+        <li>Basket intelligence from receipts</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="phase-num">4</div>
+      <span class="phase-tag tag-alwayson">Always-On</span>
+      <h4>Phase 4 — Embedded System</h4>
+      <ul>
+        <li>Aisle CTA in all email flows</li>
+        <li>Integrated with paid social campaigns</li>
+        <li>Packaging QR codes → offer page</li>
+        <li>Store locator on haskbeauty.com</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Brands Already Doing This -->
+<div class="section">
+  <div class="section-label">Brands Already Doing This with Aisle</div>
+  <div class="proof-grid">
+    <div class="proof-card">
+      <span class="category-tag">Personal Care</span>
+      <h4>Dr. Squatch</h4>
+      <p>Running store locator + offer campaigns across Target and Walmart. Embed form live on their landing page — drives paid traffic directly to in-store purchase with full redemption tracking.</p>
+    </div>
+    <div class="proof-card">
+      <span class="category-tag">Beverage</span>
+      <h4>Cadence</h4>
+      <p>Running a BOGO cashback offer at Target — shoppers buy, text their receipt, and get reimbursed via PayPal within 48 hours. Full-funnel visibility, fully white-labeled.</p>
+    </div>
+    <div class="proof-card">
+      <span class="category-tag">Food / CPG</span>
+      <h4>Pete & Gerry's</h4>
+      <p>SMS-triggered SKU offer — shoppers opt in via text, buy in-store, and submit receipt for cashback. Aisle powers the redemption flow and payout, branded entirely as Pete & Gerry's.</p>
+    </div>
+  </div>
+</div>
+
+<!-- What We Need + Timeline -->
+<div class="section">
+  <div class="section-label">What We Need + Launch Timeline</div>
+  <div class="two-col">
+    <div>
+      <h3 style="font-size:16px;font-weight:700;color:#0f1923;margin-bottom:16px;">What HASK Provides</h3>
+      <div class="provides-grid">
+        <div class="provides-card">
+          <div class="icon">✍️</div>
+          <h5>Signed Agreement</h5>
+          <p>Standard subscription contract — typically 2–3 business days</p>
+        </div>
+        <div class="provides-card">
+          <div class="icon">🎨</div>
+          <h5>Brand Assets</h5>
+          <p>Logo + brand colors for white-label setup — already have yours</p>
+        </div>
+        <div class="provides-card">
+          <div class="icon">📋</div>
+          <h5>Offer Details</h5>
+          <p>Which SKUs, offer value(s), Target scope confirmed</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="font-size:16px;font-weight:700;color:#0f1923;margin-bottom:16px;">Launch Timeline</h3>
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="timeline-num">1</div>
+          <div class="timeline-content">
+            <h5>Agreement + Onboarding Call</h5>
+            <p>Contract signed, offer details confirmed, assets shared</p>
+            <div class="days">Day 1–2</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">2</div>
+          <div class="timeline-content">
+            <h5>Campaign Build + QA</h5>
+            <p>Aisle builds and tests your branded offer experience end-to-end</p>
+            <div class="days">Day 4–7</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">3</div>
+          <div class="timeline-content">
+            <h5>Preview + Your Approval</h5>
+            <p>You review the live experience before anything goes public</p>
+            <div class="days">Day 8</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">4</div>
+          <div class="timeline-content">
+            <h5>Go Live</h5>
+            <p>Campaigns active — shoppers start redeeming immediately</p>
+            <div class="days">Day 9–10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="contact">
+    Questions? <strong>Sean Ritter</strong> · sean@gotoaisle.com
+  </div>
+  <div class="tagline">gotoaisle.com · Consumer engagement for retail brands</div>
+</div>
+
+</body>
+</html>
